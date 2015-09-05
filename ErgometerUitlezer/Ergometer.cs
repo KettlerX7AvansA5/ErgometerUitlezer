@@ -49,7 +49,10 @@ namespace ErgometerUitlezer
                     comPort.Write("ST");
                     string response = comPort.Read();
                     Console.WriteLine(response);
-                    richTextBox1.Text = FormatHelper.Status(response).ToString();
+
+                    Meting test = FormatHelper.Status(response);
+                    string test2 = test.ToString();
+                    richTextBox1.Text = test2;
                 }
             }
             else
