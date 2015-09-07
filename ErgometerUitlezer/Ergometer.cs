@@ -70,6 +70,7 @@ namespace ErgometerUitlezer
                     powerButton.Enabled = false;
                     energyButton.Enabled = false;
                     ComPortBox.Enabled = true;
+                    richTextBox1.Text = "";
                     
                 }
             }
@@ -107,6 +108,8 @@ namespace ErgometerUitlezer
 
         private void timeButton_Click(object sender, EventArgs e)
         {
+            comPort.Write("RS");
+            Thread.Sleep(200);
             string[] temp = inputTextBox.Text.Split(':');
             int minutes = int.Parse(temp[0]);
             int seconds = int.Parse(temp[1]);
@@ -117,6 +120,8 @@ namespace ErgometerUitlezer
 
         private void distanceButton_Click(object sender, EventArgs e)
         {
+            comPort.Write("RS");
+            Thread.Sleep(200);
             int temp = int.Parse(inputTextBox.Text);
             comPort.Write("PD " + temp.ToString());
             inputTextBox.Text = "";
@@ -133,6 +138,8 @@ namespace ErgometerUitlezer
 
         private void energyButton_Click(object sender, EventArgs e)
         {
+            comPort.Write("RS");
+            Thread.Sleep(200);
             int temp = int.Parse(inputTextBox.Text);
             comPort.Write("PE " + temp.ToString());
             inputTextBox.Text = "";
